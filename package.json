@@ -1,0 +1,31 @@
+{
+  "name": "2servise-API",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "start": "node ./dist/core/main.js",
+    "start:dev": "nodemon ./dist/core/main.js",
+    "build": "tsc --build",
+    "run": "tsc && node ./dist/core/main.js",
+    "build:dev": "tsc -w",
+    "clean": "tsc --build --clean"
+  },
+  "author": "Archie_0",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.3",
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.19",
+    "@types/node": "^20.8.5",
+    "@types/sequelize": "^4.28.16"
+  }
+}
