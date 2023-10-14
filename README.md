@@ -36,5 +36,3 @@ npm run start
 For more information or questions, you can reach out to the project owner:
 
 - **Telegram:** [Archie_O](https://t.me/Archie_O)
-
-Feel free to add any additional sections or details as needed for your project's README. Good luck with your project!
