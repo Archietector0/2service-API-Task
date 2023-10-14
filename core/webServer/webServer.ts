@@ -1,8 +1,8 @@
 import cors from "cors";
 import { PORT } from "../../config";
 import express from "express";
-import { UserRouter } from "../router/user.router";
-import { StorageRecordRouter } from "../router/storageRecord.router";
+import { UserRouter } from "../routers/user.router";
+import { StorageRecordRouter } from "../routers/storageRecord.router";
 import middlewareLogger from '../middlewares/error.middleware';
 import bodyParser from "body-parser";
 

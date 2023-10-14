@@ -1,3 +1,5 @@
+import { UserDTO } from "./dtos/user.dto";
+
 export type TUserRecord = {
   uuid: string;
   created_at: Date;
@@ -19,13 +21,7 @@ export type TChangeUserRecord = {
 
 export type TRecordParams = {
   action: "CREATE" | "CHANGE";
-  recordInfo: {
-    user_uuid: string;
-    name?: string;
-    surname?: string;
-    city?: string;
-    age?: number;
-  };
+  recordInfo: UserDTO
 };
 
 export type TStorageRecord = {

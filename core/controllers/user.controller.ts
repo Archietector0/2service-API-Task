@@ -4,6 +4,7 @@ import { Request, Response, NextFunction } from "express";
 import crypto from "crypto";
 import { StorageRecordService } from "../services/storageRecord.service";
 import { ApiError } from "../exceptions/api.error";
+import { UserDTO } from "../dtos/user.dto";
 
 export class UserController {
   private _userService: UserService;
@@ -40,13 +41,7 @@ export class UserController {
       await this._userService.createUser(userRecord);
       await this._storageRecordService.createRecord({
         action: "CREATE",
-        recordInfo: {
-          user_uuid: userRecord.user_uuid,
-          name: userRecord.name,
-          surname: userRecord.surname,
-          city: userRecord.city,
-          age: userRecord.age,
-        },
+        recordInfo: new UserDTO(userRecord)
       });
       res.send({ status: 'success', desc: 'Actions were successfully completed' });
       res.status(200);
@@ -81,13 +76,7 @@ export class UserController {
 
       await this._storageRecordService.createRecord({
         action: "CHANGE",
-        recordInfo: {
-          user_uuid: userRecordChanges.user_uuid,
-          name: userRecordChanges.name,
-          surname: userRecordChanges.surname,
-          city: userRecordChanges.city,
-          age: userRecordChanges.age,
-        },
+        recordInfo: new UserDTO(userRecordChanges),
       });
 
       res.send({ status: 'success', desc: 'Actions were successfully completed' });
