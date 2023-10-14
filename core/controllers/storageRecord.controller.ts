@@ -1,3 +1,4 @@
+import { ApiError } from "../exceptions/api.error";
 import { StorageRecordService } from "../services/storageRecord.service";
 import { Request, Response, NextFunction } from "express";
 
@@ -18,12 +19,23 @@ export class StorageRecordController {
     }
   };
 
-  public getStorageById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public getStorageByIdPage = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { uuid } = req.params;
+      const { uuid, page } = req.params;
+      const pageSize = 3
+
+      if (Number(page) <= 0) {
+        return next(ApiError.BadRequest({
+          message: `Invalid page parameter value - [${page}]`
+        }))
+      }
 
       const response = await this._storageRecordService.getStorageByUuid(uuid);
-      res.send(response);
+
+      const startIndex = (Number(page) - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+
+      res.send(response.slice(startIndex, endIndex));
       res.status(200);
     } catch (error: any) {
       next(error);

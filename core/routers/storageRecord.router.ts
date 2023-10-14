@@ -16,7 +16,7 @@ export class StorageRecordRouter {
   private _start = () => {
     this._router.get(ROUTES.GET_STORAGE, this._storageRecordController.getStorage);
 
-    this._router.get(ROUTES.GET_STORAGE_BY_UUID, this._storageRecordController.getStorageById);
+    this._router.get(ROUTES.GET_STORAGE_BY_UUID_AND_PAGE, this._storageRecordController.getStorageByIdPage);
   };
 
   public getRouter = () => {
