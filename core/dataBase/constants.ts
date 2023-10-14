@@ -1,4 +1,4 @@
 export const MODEL_NAMES = {
-  USER: "test-table",
+  USER: "users",
   RECORDS: "records",
 };

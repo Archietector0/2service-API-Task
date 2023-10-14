@@ -16,7 +16,7 @@ export class UserRouter {
   private _start = () => {
     this._router.post(ROUTES.CREATE, this._userController.createUser);
 
-    this._router.post(ROUTES.CHANGE, this._userController.changeUser);
+    this._router.put(ROUTES.CHANGE, this._userController.changeUser);
 
     this._router.get(ROUTES.GET_USERS_LIST, this._userController.getUserList);
   };
