@@ -49,8 +49,7 @@ npm run start
 
 - **Get Storage:** `GET /api/storage/getStorage`
 - **Get Storage by UUID and Page:** `GET /api/storage/getStorage/:uuid/:page`
-
-(To be able to use more than 1 page in the page parameter, there must be more than 3 entries)
+- (To be able to use more than 1 page in the page parameter, there must be more than 3 entries)
 
 ## Technologies Used
 
