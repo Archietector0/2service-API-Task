@@ -15,3 +15,30 @@ npm run build
 // Step 3: Start the Server
 npm run start
 ```
+
+## Endpoints
+
+### User Service Endpoints
+
+- **Create User:** `POST /api/user/createUser`
+- **Change User:** `PUT /api/user/changeUser`
+- **Get Users List:** `GET /api/user/getUsersList`
+
+### Storage Service Endpoints
+
+- **Get Storage:** `GET /api/storage/getStorage`
+- **Get Storage by UUID and Page:** `GET /api/storage/getStorage/:uuid/:page`
+
+## Technologies Used
+
+- **Sequelize ORM:** Sequelize is used as the Object-Relational Mapping tool for the PostgreSQL database.
+- **TypeScript:** TypeScript is used for the service implemented in TypeScript.
+- **Object-Oriented Programming (OOP):** Object-oriented principles are followed in the codebase for better organization and maintainability.
+- **Module System:** The project utilizes a module system for a structured codebase.
+- **Express:** Express.js is used as the web application framework for handling HTTP requests.
+
+## Contact
+
+For more information or questions, you can reach out to the project owner:
+
+- **Telegram:** [Archie_O](https://t.me/Archie_O)
