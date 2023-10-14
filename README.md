@@ -4,6 +4,21 @@
 
 ## Installation
 
+Before starting the project, you need to create the .env file with the following content
+
+```typescript
+[webserver]
+PORT=3000
+URL=''  can be empty
+[database]
+DB_DIALECT=postgres // leave unchanged
+DB_HOST=localhost // leave unchanged
+DB_NAME=secret-db-name // changed
+DB_PASSWORD=secret-password // change
+DB_PORT=5432 // leave unchanged
+DB_USER=postgres // leave unchanged
+```
+
 To install the project, run the following commands:
 ```typescript
 // Step 1: Install Dependencies
