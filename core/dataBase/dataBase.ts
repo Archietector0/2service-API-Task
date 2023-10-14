@@ -10,7 +10,7 @@ class DataBase {
 
   private _connect = () => {
     this._connection = new Sequelize(`${DB_DIALECT}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`);
-    this._connection.sync()
+    this._connection.sync();
   };
 
   public getConn = () => {

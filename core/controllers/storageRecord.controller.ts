@@ -22,12 +22,14 @@ export class StorageRecordController {
   public getStorageByIdPage = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { uuid, page } = req.params;
-      const pageSize = 3
+      const pageSize = 3;
 
       if (Number(page) <= 0) {
-        return next(ApiError.BadRequest({
-          message: `Invalid page parameter value - [${page}]`
-        }))
+        return next(
+          ApiError.BadRequest({
+            message: `Invalid page parameter value - [${page}]`,
+          })
+        );
       }
 
       const response = await this._storageRecordService.getStorageByUuid(uuid);

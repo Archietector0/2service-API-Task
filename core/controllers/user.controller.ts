@@ -41,9 +41,9 @@ export class UserController {
       await this._userService.createUser(userRecord);
       await this._storageRecordService.createRecord({
         action: "CREATE",
-        recordInfo: new UserDTO(userRecord)
+        recordInfo: new UserDTO(userRecord),
       });
-      res.send({ status: 'success', desc: 'Actions were successfully completed' });
+      res.send({ status: "success", desc: "Actions were successfully completed" });
       res.status(200);
     } catch (error: any) {
       next(error);
@@ -79,7 +79,7 @@ export class UserController {
         recordInfo: new UserDTO(userRecordChanges),
       });
 
-      res.send({ status: 'success', desc: 'Actions were successfully completed' });
+      res.send({ status: "success", desc: "Actions were successfully completed" });
       res.status(200);
     } catch (error: any) {
       next(error);

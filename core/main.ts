@@ -8,7 +8,6 @@ class Main {
   constructor() {
     this._webServer = new WebServer();
 
-
     this._start();
   }
 

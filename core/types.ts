@@ -21,7 +21,7 @@ export type TChangeUserRecord = {
 
 export type TRecordParams = {
   action: "CREATE" | "CHANGE";
-  recordInfo: UserDTO
+  recordInfo: UserDTO;
 };
 
 export type TStorageRecord = {

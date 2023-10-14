@@ -1,7 +1,6 @@
 import { ApiError } from "../exceptions/api.error";
 import { Request, Response, NextFunction } from "express";
 
-
 function logger(err: any, req: Request, res: Response, next: NextFunction) {
   console.log(err);
   return err instanceof ApiError

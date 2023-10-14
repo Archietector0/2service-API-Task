@@ -64,5 +64,5 @@ UserModel.init(
   }
 );
 
-UserModel.hasMany(StorageRecordModel, { foreignKey: 'user_uuid'});
-StorageRecordModel.belongsTo(UserModel, { foreignKey: 'user_uuid'});
+UserModel.hasMany(StorageRecordModel, { foreignKey: "user_uuid" });
+StorageRecordModel.belongsTo(UserModel, { foreignKey: "user_uuid" });
