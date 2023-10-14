@@ -1,7 +1,6 @@
 import { WebServer } from "./webServer/webServer";
 
 // TODO: сделать DTO
-// TODO: сделать middleware обработки ошибок
 // TODO: оформить все в гитхабе
 
 class Main {

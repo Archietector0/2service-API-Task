@@ -35,3 +35,14 @@ export type TStorageRecord = {
   action: string;
   changes_request: string;
 };
+
+export type ApiErrorArgs = {
+  status: number;
+  message: string;
+  errors?: Array<string>;
+};
+
+export type ApiErrorBadReq = {
+  message: string;
+  errors?: Array<any>;
+};

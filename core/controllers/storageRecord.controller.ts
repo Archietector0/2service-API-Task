@@ -1,5 +1,5 @@
 import { StorageRecordService } from "../services/storageRecord.service";
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
 export class StorageRecordController {
   private _storageRecordService: StorageRecordService;
@@ -8,25 +8,25 @@ export class StorageRecordController {
     this._storageRecordService = new StorageRecordService();
   }
 
-  public getStorage = async (req: Request, res: Response): Promise<void> => {
+  public getStorage = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const response = await this._storageRecordService.getStorage();
       res.send(response);
       res.status(200);
-    } catch (e: any) {
-      console.log(`[ERROR]: ${e.message}`);
+    } catch (error: any) {
+      next(error);
     }
   };
 
-  public getStorageById = async (req: Request, res: Response): Promise<void> => {
+  public getStorageById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { uuid } = req.params;
 
       const response = await this._storageRecordService.getStorageByUuid(uuid);
       res.send(response);
       res.status(200);
-    } catch (e: any) {
-      console.log(`[ERROR]: ${e.message}`);
+    } catch (error: any) {
+      next(error);
     }
   };
 }

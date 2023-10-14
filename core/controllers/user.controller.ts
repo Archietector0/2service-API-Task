@@ -1,8 +1,9 @@
 import { TChangeUserRecord, TUserRecord } from "core/types";
 import { UserService } from "../services/user.service";
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import crypto from "crypto";
 import { StorageRecordService } from "../services/storageRecord.service";
+import { ApiError } from "../exceptions/api.error";
 
 export class UserController {
   private _userService: UserService;
@@ -13,9 +14,18 @@ export class UserController {
     this._storageRecordService = new StorageRecordService();
   }
 
-  public createUser = async (req: Request, res: Response): Promise<void> => {
+  public createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { body } = req;
+
+      if (!body.name || !body.surname || !body.city || !body.age) {
+        const currentData = `name: ${body.name}, surname: ${body.surname}, city: ${body.city}, age: ${body.age}`;
+        return next(
+          ApiError.BadRequest({
+            message: `Some of the required parameters are empty. Your data: [${currentData}]`,
+          })
+        );
+      }
 
       const userRecord: TUserRecord = {
         uuid: crypto.randomUUID(),
@@ -38,25 +48,36 @@ export class UserController {
           age: userRecord.age,
         },
       });
-      res.send({ action: "CREATING", status: "SUCCESS" });
+      res.send({ status: 'success', desc: 'Actions were successfully completed' });
       res.status(200);
-    } catch (e: any) {
-      console.log(`[ERROR]: ${e.message}`);
+    } catch (error: any) {
+      next(error);
     }
   };
 
-  public changeUser = async (req: Request, res: Response): Promise<void> => {
+  public changeUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
+      if (!req.body.user_uuid) {
+        return next(
+          ApiError.BadRequest({
+            message: `Parameter user_uuid is not specified`,
+          })
+        );
+      }
+
       const userRecordChanges: TChangeUserRecord = {
         created_at: new Date(),
         ...req.body,
       };
 
-      Object.entries({ ...req.body }).length == 1
-        ? res.send({ action: "CHANGING", status: "SUCCESS", desc: "Nothing will be change, empty object" })
-        : res.send({ action: "CHANGING", status: "SUCCESS", desc: "" });
-
-      await this._userService.changeUser(userRecordChanges);
+      const result = await this._userService.changeUser(userRecordChanges);
+      if (!result[0]) {
+        return next(
+          ApiError.NotFound({
+            message: `Requested user_uuid not found`,
+          })
+        );
+      }
 
       await this._storageRecordService.createRecord({
         action: "CHANGE",
@@ -69,19 +90,20 @@ export class UserController {
         },
       });
 
+      res.send({ status: 'success', desc: 'Actions were successfully completed' });
       res.status(200);
-    } catch (e: any) {
-      console.log(`[ERROR]: ${e.message}`);
+    } catch (error: any) {
+      next(error);
     }
   };
 
-  public getUserList = async (req: Request, res: Response): Promise<void> => {
+  public getUserList = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const response = await this._userService.getUserList();
       res.send(response);
       res.status(200);
-    } catch (e: any) {
-      console.log(`[ERROR]: ${e.message}`);
+    } catch (error: any) {
+      next(error);
     }
   };
 }

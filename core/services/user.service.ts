@@ -12,8 +12,8 @@ export class UserService {
     await this._userModel.create(userRecord);
   };
 
-  public changeUser = async (userRecordChanges: TChangeUserRecord) => {
-    await this._userModel.update(userRecordChanges, { where: { user_uuid: userRecordChanges.user_uuid } });
+  public changeUser = async (userRecordChanges: TChangeUserRecord): Promise<any> => {
+    return await this._userModel.update(userRecordChanges, { where: { user_uuid: userRecordChanges.user_uuid } });
   };
 
   public getUserList = async (): Promise<UserModel[]> => {

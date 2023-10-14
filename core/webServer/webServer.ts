@@ -3,6 +3,7 @@ import { PORT } from "../../config";
 import express from "express";
 import { UserRouter } from "../router/user.router";
 import { StorageRecordRouter } from "../router/storageRecord.router";
+import middlewareLogger from '../middlewares/error.middleware';
 import bodyParser from "body-parser";
 
 export class WebServer {
@@ -27,6 +28,8 @@ export class WebServer {
       this._app.use("/api/user", this._userRouter);
 
       this._app.use("/api/storage", this._storageRecordRouter);
+
+      this._app.use(middlewareLogger)
 
       this._app.listen(PORT, () => {
         console.log(`WebServer listening on port: ${PORT}...`);
