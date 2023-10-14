@@ -4,12 +4,18 @@
 
 ## Installation
 
-Before starting the project, you need to create the .env file with the following content
+Before launching the project, you need:
+- Download postgres 13 versions, since the project used it. IT IS IMPORTANT that if you use a later version, there will be a problem with the default user postgres, you will need to register rights
+- Need to create the .env file with the following content
+- Set database password and put it in .env file 
+- Create a database and write this name to .env file
+- Create 2 tables and name them 'users' and 'records'
+- Create skeletons of these tables, examples can be found in folder models [here]([https://www.google.com](https://github.com/Archietector0/2service-API-Task/tree/main/core/dataBase/models))
 
 ```typescript
 [webserver]
 PORT=3000
-URL=''  can be empty
+URL='' // can be empty
 [database]
 DB_DIALECT=postgres // leave unchanged
 DB_HOST=localhost // leave unchanged
