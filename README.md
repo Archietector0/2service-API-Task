@@ -10,7 +10,7 @@ Before launching the project, you need:
 - Set database password and put it in .env file 
 - Create a database and write this name to .env file
 - Create 2 tables and name them 'users' and 'records'
-- Create skeletons of these tables, examples can be found in folder models [Link Text](core/dataBase/models)
+- Create skeletons of these tables, examples can be found in folder models [Link Text](tsconfig.json)
 
 ```typescript
 [webserver]
