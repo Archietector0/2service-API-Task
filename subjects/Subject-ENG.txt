@@ -1,0 +1,30 @@
+
+Certainly, here is the rewritten task description in a more professional tone:
+
+Project Description:
+
+This project entails the development of two essential services: a user service and an activity history service.
+The user service is tasked with providing three critical endpoints:
+
+User Creation: Implement the functionality to create new user profiles.
+User Modification: Develop the capability to modify existing user information.
+User Retrieval: Implement an endpoint to retrieve a comprehensive list of users.
+Additionally, it is imperative to ensure seamless communication between these services. Specifically,
+user creation events and subsequent modifications must be diligently transmitted to the User Activity History service.
+This ensures a robust tracking system for all user-related actions.
+
+Activity History Service Requirements:
+
+The Activity History Service, in particular, should be equipped with a robust mechanism to meticulously record user actions.
+This history must be accessible through endpoints with filtering capabilities based on user identifiers.
+Moreover, it should support pagination, enabling users to navigate through the history page by page.
+
+Implementation Guidelines:
+Service Communication: The communication methods between the services are flexible and can be tailored according to the project's requirements.
+There are no strict constraints on the communication protocols.
+
+Technology Choices:
+The both services can be developed using TypeScript (TS). The usage of TypeScript enhances code reliability and maintainability.
+The project utilizes PostgreSQL as the Database Management System (DBMS). This choice ensures data consistency and reliability.
+By adhering to these guidelines and requirements, the project will deliver a seamless user service, complemented by a robust activity history service.
+The implementation should prioritize clarity, scalability, and maintainability to ensure the project's long-term success.
