@@ -5,4 +5,13 @@
 ## Installation
 
 To install the project, run the following commands:
-```bash//npm install```
+```typescript
+// Step 1: Install Dependencies
+npm install
+
+// Step 2: Build the Project
+npm run build
+
+// Step 3: Start the Server
+npm run start
+```
