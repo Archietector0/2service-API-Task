@@ -5,9 +5,9 @@
 ## Installation
 
 To install the project, run the following commands:
-npm install
-npm run build
-npm run start
+- npm install
+- npm run build
+- npm run start
 
 
 ## Endpoints
